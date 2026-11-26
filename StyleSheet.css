@@ -6,7 +6,7 @@
 img {
   width: 525px;
   border-radius: 3rem;
-  border: 2px solid white;
+  border: 2px solid black;
 }
 
 /* .container rule set:
@@ -221,9 +221,10 @@ nav li {
 
 /* the header holds the title (left) and menu links (right) on one row */
 .entry header  { grid-area: 1 / 1 / 2 / -1; }
-.entry .image  { grid-area: 2 / 1 / 3 / 8; }
-.entry .text   { grid-area: 2 / 8 / 3 / -1; }
-.entry .buttons { grid-area: 3 / 8 / 4 / -1; }
+/* photo spans 5 of the 12 columns; text and buttons fill the other 7 */
+.entry .image  { grid-area: 2 / 1 / 3 / 6; }
+.entry .text   { grid-area: 2 / 6 / 3 / -1; }
+.entry .buttons { grid-area: 3 / 6 / 4 / -1; }
 
 /* line the entry text up with the top edge of the photo:
    both start at the top of their grid row, and the heading's
