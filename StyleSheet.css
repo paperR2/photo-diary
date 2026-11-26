@@ -180,28 +180,53 @@ nav li {
     border-radius: 1.5rem;
   }
 }
-/* 2024 photo diary table */
+/* photo diary page: a grid of 75px x 75px thumbnails,
+   each one links to its entry page */
 .diary {
-  border-collapse: collapse;
   margin: 1rem 0;
 }
 
-.diary th,
-.diary td {
-  border: 1px solid #ccc;
-  padding: 0.5rem 1.5rem;
-  vertical-align: top;
-  text-align: left;
-}
-
-.diary ul {
+.thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.diary li {
-  line-height: 1.6;
+.thumbs a {
+  display: block;
+  width: 75px;
+  height: 75px;
+}
+
+/* overrides the site-wide img rule (525px wide, rounded corners);
+   object-fit: cover crops each photo to a centred square */
+.thumbs img,
+.thumb-empty {
+  display: block;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border: 2px solid black;
+  border-radius: 0;
+  box-sizing: border-box; /* keep the border inside the 75px */
+}
+
+/* entries that don't have a photo yet */
+.thumb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #555;
+  text-decoration: none;
+}
+
+.thumbs a:hover img,
+.thumbs a:hover .thumb-empty {
+  opacity: 0.75;
 }
 
 /* ---------------------------------------------------------------
