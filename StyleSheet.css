@@ -46,6 +46,22 @@ nav li {
   list-style: none;
 }
 
+/* home page: title on the left, menu links on the right, same line */
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-bar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.title-bar li {
+  margin-left: 1.5rem;
+}
+
 /* .image sits to the left of .text, on the same rows (3-12) */
 .image {
   grid-area: 3 / 1 / 13 / 8;
@@ -131,12 +147,38 @@ nav li {
 
 }
 
-#fit-picture {
-  max-width: 450px;
-  max-height: 300px;
+/* home page photos: as many 260px+ columns as fit the screen,
+   so 3 across on a laptop, 2 on a tablet, 1 on a phone */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  max-width: 1400px;
+}
+
+.fit-picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border: solid 2px black;
+  box-sizing: border-box; /* keep the border inside the column */
+}
 
+/* phones: title on top, links centred underneath */
+@media screen and (max-width: 700px) {
+  .title-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .title-bar li {
+    margin: 0 0.75rem;
+  }
+
+  .fit-picture {
+    border-radius: 1.5rem;
+  }
 }
 /* 2024 photo diary table */
 .diary {
