@@ -219,11 +219,11 @@ nav li {
   padding: 0 1rem;
 }
 
+/* the header holds the title (left) and menu links (right) on one row */
 .entry header  { grid-area: 1 / 1 / 2 / -1; }
-.entry nav     { grid-area: 2 / 1 / 3 / -1; }
-.entry .image  { grid-area: 3 / 1 / 4 / 8; }
-.entry .text   { grid-area: 3 / 8 / 4 / -1; }
-.entry .buttons { grid-area: 4 / 8 / 5 / -1; }
+.entry .image  { grid-area: 2 / 1 / 3 / 8; }
+.entry .text   { grid-area: 2 / 8 / 3 / -1; }
+.entry .buttons { grid-area: 3 / 8 / 4 / -1; }
 
 /* line the entry text up with the top edge of the photo:
    both start at the top of their grid row, and the heading's
@@ -257,24 +257,18 @@ nav li {
   }
 
   /* drop the fixed positions so items stack in page order:
-     title, menu, photo, text, buttons */
+     title and menu, photo, text, buttons */
   .entry header,
-  .entry nav,
   .entry .image,
   .entry .text,
   .entry .buttons {
     grid-area: auto;
   }
 
-  /* ids are used here because #right-center, #right and #padding10
-     would otherwise override these class-based rules */
-  .entry #right-center,
+  /* an id is used here because #right would otherwise
+     override this class-based rule */
   .entry #right {
     text-align: center;
-  }
-
-  .entry #padding10 {
-    padding: 10px 0;
   }
 
   .entry .image img {
